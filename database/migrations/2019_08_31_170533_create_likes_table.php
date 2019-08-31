@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRepliesTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('replies', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('body');
-
-            $table->integer('question_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-
+            $table->integer('reply_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('replies');
+        Schema::dropIfExists('likes');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Questation;
+use App\Likes;
 use Illuminate\Http\Request;
 
-class QuestationController extends Controller
+class LikesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class QuestationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Questation  $questation
+     * @param  \App\Likes  $likes
      * @return \Illuminate\Http\Response
      */
-    public function show(Questation $questation)
+    public function show(Likes $likes)
     {
         //
     }
@@ -52,10 +52,10 @@ class QuestationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Questation  $questation
+     * @param  \App\Likes  $likes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Questation $questation)
+    public function edit(Likes $likes)
     {
         //
     }
@@ -64,10 +64,10 @@ class QuestationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Questation  $questation
+     * @param  \App\Likes  $likes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Questation $questation)
+    public function update(Request $request, Likes $likes)
     {
         //
     }
@@ -75,10 +75,10 @@ class QuestationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Questation  $questation
+     * @param  \App\Likes  $likes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Questation $questation)
+    public function destroy(Likes $likes)
     {
         //
     }
