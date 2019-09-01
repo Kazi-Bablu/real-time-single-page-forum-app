@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\QuestionResource;
 use App\Question;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -14,7 +16,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        return Question::latest()->get();
     }
 
     /**
@@ -35,7 +37,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //auth()->user()->question()->create($request->all());
+        return QuestionResource::collection(Question::create($request->all()));
+        return response('Created',Response::HTTP_CREATED);
     }
 
     /**
@@ -44,9 +48,9 @@ class QuestionController extends Controller
      * @param  \App\Question  $questation
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $questation)
+    public function show(Question $question)
     {
-        //
+        return new QuestionResource($question);
     }
 
     /**
@@ -55,7 +59,7 @@ class QuestionController extends Controller
      * @param  \App\Question  $questation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $questation)
+    public function edit(Question $question)
     {
         //
     }
@@ -67,7 +71,7 @@ class QuestionController extends Controller
      * @param  \App\Question  $questation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $questation)
+    public function update(Request $request, Question $question)
     {
         //
     }
@@ -78,8 +82,9 @@ class QuestionController extends Controller
      * @param  \App\Question  $questation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $questation)
+    public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return response('Deleted',Response::HTTP_NO_CONTENT);
     }
 }
