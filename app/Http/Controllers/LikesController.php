@@ -19,6 +19,15 @@ class LikesController extends Controller
     }
 
     /**
+     * QuestionController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('JWT');
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

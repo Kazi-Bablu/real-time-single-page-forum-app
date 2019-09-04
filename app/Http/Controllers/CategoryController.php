@@ -21,6 +21,14 @@ class CategoryController extends Controller
     }
 
     /**
+     * QuestionController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index', 'show']]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -38,7 +46,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
 //        Category::created($request->all());
         $category = new Category();
         $category->name = $request->name;

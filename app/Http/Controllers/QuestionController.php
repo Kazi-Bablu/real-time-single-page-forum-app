@@ -20,6 +20,14 @@ class QuestionController extends Controller
     }
 
     /**
+     * QuestionController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index','show']]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

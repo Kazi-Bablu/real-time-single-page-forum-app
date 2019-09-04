@@ -20,6 +20,14 @@ class ReplyController extends Controller
         return ReplyResource::collection($question->replies);
         // return Reply::latest()->get();
     }
+    /**
+     * QuestionController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index','show']]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
